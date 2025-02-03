@@ -1,7 +1,7 @@
 #FutureTime.py
-#Name:
-#Date:
-#Assignment:
+#Name: Aurora Gunubu
+#Date: 2/2/25
+#Assignment: Lab #2 - FutureTime
 
 # datetime will allow us to access the system date and time.
 import datetime
@@ -9,20 +9,21 @@ import datetime
 def main():
   #getting current time from system, storing to variable
   now = datetime.datetime.now()
-  currentHour = now.hour
+  currentHour = (now.hour - 6) % 24
   currentMinute = now.minute
 
-  print (currentHour, currentMinute) #this is just for checking, we should delete it later
+  moreHrs = int(input("Input number of hours\n"))
+  moreMins = int(input("Input number of minutes\n"))
+  extraHour = (currentMinute + moreMins) // 60
 
-  #TODO:
-  #Ask user for hours
-  #Ask user for minutes
+  futureMins = (currentMinute + moreMins) % 60
+  futureHour = (currentHour + moreHrs + extraHour)
+  futureHour = ((futureHour - 1) % 12) + 1
+  
+  print(f"{futureHour:02}:{futureMins:02}")
 
-  #Calculate the time after the user-supplied time has passed.
-
-  #Do not use any if statements in calculating the time.
-
-  #Output the future time in standard format "HH:MM"
+# Just learned how to use brackets for this assignment.
+# Changed current hour to -6 to match CST.
 
 
 if __name__ == '__main__':
